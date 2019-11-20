@@ -1,9 +1,12 @@
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 
 RUN apt-get update 
 RUN apt-get install -y curl \
                        vim \
                        less \
+                       libcurl4 \
+                       libcurl-dev \
+                       libcurl4-gnutls-dev \
                        libssh-dev \
                        libmysqld-dev \
                        libpq-dev \
@@ -27,4 +30,3 @@ RUN cp -f contrib/nxagentd.conf-dist /etc/nxagentd.conf
 
 COPY files/start.sh /opt/start.sh
 RUN chmod 755 /opt/start.sh
-
